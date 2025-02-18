@@ -17,6 +17,12 @@ async function fetchData() {
         document.getElementById("dashboard-card-1").querySelector("strong").innerText = result["セルA1"];
         document.getElementById("dashboard-card-2").querySelector("strong").innerText = result["セルB1"];
 
+    } catch (error) {
+        console.error("❌ データ取得エラー:", error);
+        document.getElementById("dashboard-card-1").querySelector("strong").innerText = "データ取得エラー";
+        document.getElementById("dashboard-card-2").querySelector("strong").innerText = "データ取得エラー";
+    }
+
 
         // ✅ 日付とスプレッドシートの更新時刻を表示
         const dateElement = document.getElementById("latest-date");
