@@ -1,17 +1,23 @@
 // ✅ Google Apps ScriptのURLをここに貼り付け
-const apiUrl = "https://script.google.com/macros/s/AKfycbzFNOekouxWlJ3g_q6Fg3ZXTX8udctKQSBKAwkupswvDaT5GJAF2dc2t1mDMdT2jA9q/exec";
+// ✅ 重要指標（病床利用率、救急車搬入数など）のスプレッドシートの Google Apps Script (GAS) URL
+const apiUrl = "https://script.google.com/macros/s/AKfycbwHAL0q3uIknu81KFJWpnciwS6-Owlc0T9K7BaHuxUeB5H9zaVv3MSg8uPgPk03jXaZ7g/exec";
+// ✅ 「水曜会」「経営戦略室の戦略」のスプレッドシートの Google Apps Script (GAS) URL
+const apiUrlMeetings = "https://script.google.com/macros/s/あなたの_水曜会_経営戦略室_GAS_URL/exec";
+
 
 // ✅ データ取得 & カードへの表示 & グラフ表示
 async function fetchData() {
     try {
         const response = await fetch(apiUrl);
         const result = await response.json();
-        const latestData = result.data[result.data.length - 1];
-        console.log("取得データ:", result);
+        console.log("取得データ（水曜会・経営戦略室の戦略）:", result);
 
         if (!result["セルA1"] || !result["セルB1"]) {
             throw new Error("スプレッドシートのデータが取得できません。");
         }
+        
+        //移動＿山本
+        const latestData = result.data[result.data.length - 1];
 
         // ✅ 「水曜会」と「経営戦略室の戦略」のカードにデータを表示
         document.getElementById("dashboard-card-1").querySelector("strong").innerText = result["セルA1"];
