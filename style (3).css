@@ -1,20 +1,6 @@
-/* ✅ フォントの定義 */
-@font-face {
-    font-family: 'Soleil';
-    src: url('https://dorichapi.github.io/Rev6_dashboard/res/Soleil.woff2') format('woff2'),
-         url('https://dorichapi.github.io/Rev6_dashboard/res/Soleil.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* ✅ フォントを適用 */
-body {
-    font-family: 'Soleil', Arial, sans-serif;
-}
-
 /* ✅ 全体の基本スタイル */
 body {
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     text-align: center;
     margin: 20px;
     background-color: #f9f9f9;
@@ -40,7 +26,6 @@ h1.left-align {
     padding-left: 20px;
 }
 
-
 .update-time {
     font-size: 24px;
     color: #666;
@@ -48,7 +33,6 @@ h1.left-align {
     font-weight: bold;
 }
 
-/* 新たに追加＿山本*/
 /* ✅ ヘッダー全体のスタイル */
 .header-container {
     display: flex;
@@ -62,6 +46,7 @@ h1.left-align {
 .header-right {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 /* ✅ 大きめのカード（「水曜会」「経営戦略室の戦略」用） */
@@ -72,6 +57,7 @@ h1.left-align {
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
     width: 250px; /* 幅を変更可能 */
     min-height: 150px; /* 高さを変更可能 */
+    max-width: 300px; /* 可読性のため制限 */
     text-align: center;
     font-size: 28px;
     display: flex;
@@ -79,11 +65,10 @@ h1.left-align {
     justify-content: center;
 }
 
-
 /* ✅ ダッシュボードカードレイアウト */
 .dashboard {
     display: flex;
-    justify-content: center;
+    justify-content: space-around; /* ✅ カードの間隔を均等化 */
     flex-wrap: wrap;
     gap: 15px;
     margin: 20px;
@@ -109,9 +94,6 @@ h1.left-align {
     color: #444;
     font-size: 28px;
     font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .card strong {
