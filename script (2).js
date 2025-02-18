@@ -1,12 +1,22 @@
 // ✅ Google Apps ScriptのURLをここに貼り付け
 const apiUrl = "https://script.google.com/macros/s/AKfycbzFNOekouxWlJ3g_q6Fg3ZXTX8udctKQSBKAwkupswvDaT5GJAF2dc2t1mDMdT2jA9q/exec";
 
-// ✅ データ取得 & グラフ表示
+// ✅ データ取得 & カードへの表示 & グラフ表示
 async function fetchData() {
     try {
         const response = await fetch(apiUrl);
         const result = await response.json();
         const latestData = result.data[result.data.length - 1];
+        console.log("取得データ:", result);
+
+        if (!result["セルA1"] || !result["セルB1"]) {
+            throw new Error("スプレッドシートのデータが取得できません。");
+        }
+
+        // ✅ 「水曜会」と「経営戦略室の戦略」のカードにデータを表示
+        document.getElementById("dashboard-card-1").querySelector("strong").innerText = result["セルA1"];
+        document.getElementById("dashboard-card-2").querySelector("strong").innerText = result["セルB1"];
+
 
         // ✅ 日付とスプレッドシートの更新時刻を表示
         const dateElement = document.getElementById("latest-date");
