@@ -7,6 +7,11 @@
     font-style: normal;
 }
 
+/* ✅ フォントを適用 */
+body {
+    font-family: 'Soleil', Arial, sans-serif;
+}
+
 /* ✅ 全体の基本スタイル */
 body {
     font-family: Arial, sans-serif;
