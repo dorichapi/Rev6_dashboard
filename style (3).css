@@ -34,6 +34,38 @@ h1.left-align {
     font-weight: bold;
 }
 
+/* 新たに追加＿山本*/
+/* ✅ ヘッダー全体のスタイル */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* ✅ 右側のカード（2枚を横並びに） */
+.header-right {
+    display: flex;
+    gap: 15px;
+}
+
+/* ✅ 大きめのカード（「水曜会」「経営戦略室の戦略」用） */
+.large-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    width: 250px; /* 幅を変更可能 */
+    min-height: 150px; /* 高さを変更可能 */
+    text-align: center;
+    font-size: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
 /* ✅ ダッシュボードカードレイアウト */
 .dashboard {
     display: flex;
@@ -141,6 +173,16 @@ canvas {
     }
     canvas {
         height: 250px !important;
-        
+    }
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-right {
+        flex-direction: column;
+        width: 100%;
+    }
+    .large-card {
+        width: 100%;
     }
 }
